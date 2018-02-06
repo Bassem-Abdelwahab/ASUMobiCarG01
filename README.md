@@ -4,7 +4,7 @@ Is a smart toy project(Mobicar) that supports different automated (ex:line track
 ## Student Names:
 - Almonzer Alaaeldin Mostafa Mohamed
 - Antonio Saad Farid habib
-- Amgad Abdelkhaleq Ahmed
+- Amgad Abdelkhaleq Ahmed Elsiefi
 - Bassem Osama Farouk
-- Ahmed Abdallah
+- Ahmed Abdalla Kamal Abdalla
 - Bassem Hussien
