@@ -11,16 +11,14 @@ void motor_control(void);
 
 void setup()
 {
- pinMode(10,OUTPUT); //PWM Pin 1
- pinMode(11,OUTPUT); //PWM Pin 2
- pinMode(2,output); //left motor pin 1
- pinMode(3,output); //left motor pin 2
- pinMode(4,OUTPUT); //Left Motor 2 Pin 1
- pinMode(5,OUTPUT); //Left Motor 2 Pin 2
+ pinMode(9,OUTPUT); //PWM Pin 1
+ pinMode(10,OUTPUT); //PWM Pin 2
+ 
+ pinMode(4,OUTPUT); //Left Motor  Pin 1
+ pinMode(5,OUTPUT); //Left Motor  Pin 2
  pinMode(6,OUTPUT); //Right Motor Pin 1
  pinMode(7,OUTPUT);  //Right Motor Pin 2
- pinMode(8,output); //right motor 2 pin 1
- pinMode(9,output); //right motor 2 pin 2
+ 
  Serial.begin(9600); //Enable Serial Communications
 }
 // using the weighted value method from -5 to 5 to read the sensors output
@@ -76,14 +74,13 @@ void motor_control()
     constrain(left_motor_speed,0,255);
     constrain(right_motor_speed,0,255);
     
-    analogWrite(10,left_motor_speed);   //Left Motor Speed
-    analogWrite(11,right_motor_speed);  //Right Motor Speed
-    digitalWrite(2,high);
-    digitalWrite(3,low);
+    analogWrite(9,left_motor_speed);   //Left Motor Speed
+    analogWrite(10,right_motor_speed);  //Right Motor Speed
+    
     digitalWrite(4,HIGH);
     digitalWrite(5,LOW);
     digitalWrite(6,low);
     digitalWrite(7,high);
-    digitalWrite(8,high);
-    digitalWrite(9,low);
+    
+    
 }
