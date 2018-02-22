@@ -1,0 +1,33 @@
+#define LS 2
+#define MS 3
+#define RS 4 
+#define LM 5 
+#define RM 6
+void setup() {
+  // put your setup code here, to run once:
+  pinMode(LS,INPUT); //LS is the Left sensor
+  pinMode(MS,INPUT); //MS is the mid sensor
+  pinMode(RS,INPUT); //RS is thw right sensor
+  pinMode(LM,OUTPUT); //LM is the left motor 1
+  pinMode(RM,OUTPUT); //RM is the right motor 1
+}
+
+void loop() {
+  // put your main code here, to run repeatedly:
+  if (digitalRead(LS) == '1' && digitalRead(MS) == '0' && digitalRead(RS) == '1'){
+    digitalWrite(LM,HIGH);
+    digitalWrite(RM,HIGH);
+    }
+  if (digitalRead(LS) == '0' && digitalRead(MS) == '0' && digitalRead(RS) == '1'){
+    digitalWrite(LM,HIGH);
+    digitalWrite(RM,LOW);
+    }
+  if (digitalRead(LS) == '1' && digitalRead(MS) == '0' && digitalRead(RS) == '0'){
+    digitalWrite(LM,LOW);
+    digitalWrite(RM,HIGH);
+    }
+  if (digitalRead(LS) == '0' && digitalRead(MS) == '0' && digitalRead(RS) == '0'){
+    digitalWrite(LM,LOW);
+    digitalWrite(RM,LOW);
+    }
+}
