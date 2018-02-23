@@ -1,0 +1,95 @@
+/*line following using 4 sensors*/
+
+//defining the used pins
+
+int ena=3;
+//enable pin of the right motor has to be pwm
+int enb=6;
+//enable pin of the left motor has to be pwm
+int in1=2;
+int in2=4;
+int in3=5;
+int in4=7;
+//pins for control
+
+//speed of motors
+#define maspeed 100
+#define mbspeed 100
+
+//sensors
+int sensor1=0;
+int sensor2=0;
+int sensor3=0;
+int sensor4=0;
+
+void setup(){
+
+  pinMode(ena,OUTPUT);
+  pinMode(in1,OUTPUT);
+  pinMode(in2,OUTPUT);
+  
+  pinMode(enb,OUTPUT);
+  pinMode(in3,OUTPUT);
+  pinMode(in4,OUTPUT);
+
+  pinMode(8,INPUT);
+  pinMode(9,INPUT);
+  pinMode(10,INPUT);
+  pinMode(11,INPUT);
+  
+}
+
+void loop(){
+  
+  analogWrite(ena,maspeed);
+  analogWrite(enb,mbspeed);
+  //using analogWrite we run the motors 
+  //at the adjusted speed
+
+  sensor1=digitalRead(8);
+  sensor2=digitalRead(9);
+  sensor3=digitalRead(10);
+  sensor4=digitalRead(11);
+  //read the sensors if HIGH then a black line
+  //if LOW then a white line
+
+
+  //conditions for moving forward,left and right
+  
+if(sensor4 == HIGH && sensor3 == HIGH &&
+sensor2 == LOW && sensor1 == LOW){
+
+    //turn right
+    //right side motor backward
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+
+    //left side motor forward
+    digitalWrite(in3, HIGH);
+    digitalWrite(in4, LOW);
+  }
+
+  else if (sensor4 == LOW && sensor3 == LOW 
+  && sensor2 == HIGH && sensor1 == HIGH){
+
+    //turn left
+    //right side motor Forward
+    digitalWrite(in1, HIGH);
+    digitalWrite(in2, LOW);
+
+    //left side motor Backward
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
+  }
+
+  else if(sensor4 == LOW && sensor3 == HIGH && 
+  sensor2 == HIGH && sensor1 == LOW){
+
+    //moving forward
+    digitalWrite(in1, LOW);
+    digitalWrite(in2, HIGH);
+    digitalWrite(in3, LOW);
+    digitalWrite(in4, HIGH);
+  }
+  }
+
